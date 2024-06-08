@@ -1,0 +1,78 @@
+CHAPTER 1
+Install Node.js <---- Done
+NVM <--- Done
+Install node.js using NVM <--- Done
+NPM install <--- Done
+Basics of Node.js
+Basics of Rest Api’s
+Study Basics Of Express Js
+Create hello world project using ExpressJS
+Study Joi, Swagger
+CHAPTER 2
+Study MongoDb and Mongoose
+Create collections using mongo cli
+Connect mongodb with node.js
+Create models using mongoose in base project which must include all data types like string, number, boolean, array, array of object, embedded document, refrencing
+Create Curd APis using mongodb and express js.
+Study MySql and Prisma
+Create tables using mysql cli
+Connect mysql with node.js
+Create tables using prisma in base project which must include all data types like string, number, boolean, array, relations between multiple tables
+Create Curd APis using mysql and express js.
+CHAPTER 3
+Study JSON Web Token
+Create a User Signup Api and generate json web token for user.
+Create a logout Api and expire that generated json web token.
+Create a login Api and regenerate json web token for user.
+Image, Video, Audio upload on AWS Bucket, Digital Ocean Space
+Create a image Image, Video, Audio upload api using aws s3 and digital ocean.
+Implement Joi and swaager also.
+CHAPTER 4
+Study Socket.io
+Create chat apis using socket.io
+Create connection
+CHAPTER 5
+Study FCM Notifications and Email Notifications
+Implement Push Notifications.
+Send email to paritular user and multiple users
+send push notifications to single and multiple users
+create a api for listing unread push notifications
+create a api for reading a single push notiifcation
+create a api for reading all push notifications
+CHAPTER 6 ( Study stripe )
+create a Apis for
+1. add bank account
+2. update bank account
+3. list bank accounts
+4. check_account_status
+5. setup_intent
+6. create_stripe_token (backend use only)
+7. add_cards
+8. list_cards
+9. set_default_card
+10. delete_cards
+11. make payment
+12. make refund
+13. create a plan
+14. update a plan
+15. delete a plan
+16. list all plans
+17. create a subscription
+18. update a subscription
+19. resume a subscription
+20. cancel a subscription
+21. list subscriptions
+22. payout apis
+CHAPTER 7
+Study about Logging and implement it in base project
+Study about Cron Job and implement it in base project
+Study Moment.js
+Study Lodash
+Study Basic Linux Commands
+Study Git Setup
+Study PM2
+
+https://send.cm/4wtnfwkzvb5r
+https://send.cm/hc2l01oiwgj8
+https://send.cm/sjqtrhnxq74e
+
