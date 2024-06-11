@@ -1,0 +1,12 @@
+{
+  "name": "repl-learn",
+  "version": "1.0.0",
+  "main": "replLearn.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node replLearn.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
