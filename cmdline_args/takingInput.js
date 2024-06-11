@@ -13,15 +13,35 @@ const { log } = require('console');
 //     rl.close();
 // })
 
+// async function takeInput(){
+//     const response = await prompts({
+//         type: 'number',
+//         name: 'value',
+//         message: 'How old are you?',
+//         validate: value =>  value <= 18 ? `Nightclubs is only 18+` : true
+//     });
+
+//     console.log(response.value);
+// }
+
 async function takeInput(){
-    const response = await prompts({
+    let response = await prompts({
         type: 'number',
         name: 'value',
-        message: 'How old are you?',
-        validate: value =>  value <= 18 ? `Nightclubs is only 18+` : true
+        message: 'Enter the input',
     });
 
     console.log(response.value);
 }
 
-takeInput();
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Input sumtin: ', (res)=>{
+    console.log(res);
+    rl.close();
+} );
+
+// takeInput();
