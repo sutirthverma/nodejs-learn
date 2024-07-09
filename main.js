@@ -12,7 +12,7 @@ async function takeInput(){
     let response = await prompt({
         type: 'number',
         name: 'value',
-        message: 'Enter 1 to Make Directory\nEnter Any Other Key To Exit.'
+        message: 'Enter 1 to Make Directory\nEnter Any Other Key To Exit.: '
     });
 
     switch (response.value){
@@ -30,16 +30,16 @@ takeInput();
 
 
 
-// function makeDirec(){
-//     rl.question('Enter directory name: ', (dirName) => 
-//         fs.mkdir(path.join(__dirname, dirName),cb)
-//     );
+function makeDirec(){
+    rl.question('Enter directory name: ', (dirName) => 
+        fs.mkdir(path.join(__dirname, dirName),cb)
+    );
     
-//     function cb(err){
-//         if(err){
-//             return console.log(err);
-//         }else{
-//             console.log('Directory created successfully');
-//         }
-//     }    
-// }
+    function cb(err){
+        if(err){
+            return console.log(err);
+        }else{
+            console.log('Directory created successfully');
+        }
+    }    
+}
