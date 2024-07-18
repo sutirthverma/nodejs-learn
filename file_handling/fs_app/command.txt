@@ -1,1 +1,1 @@
-read a file newfile.txt
+delete file japneet.txt

@@ -1,4 +1,6 @@
 const fs = require('fs/promises');
+const prompts = require('prompts');
+
 
 (async () => {
 
@@ -7,16 +9,16 @@ const fs = require('fs/promises');
         const CREATE_FILE = 'create a file';
         const READ_FILE = 'read a file';
         const ADD_IN_FILE = 'add in file';
-        const DELETE_FILE = 'delete a file';
+        const DELETE_FILE = 'delete file';
 
 
         //Methods
         const createFile = async (path) => {
             try{
-                let existingFileHandle;
+                let fileHandle;
                 //we want to check whether or not we alreaedy have that file
-                existingFileHandle = await fs.open(path, 'r');
-                existingFileHandle.close();
+                fileHandle = await fs.open(path, 'r');
+                fileHandle.close();
                 return console.log(`The file ${path} already exits`);
             } catch (err){
                 const newFileHandle = await fs.open(path, 'w');
@@ -27,25 +29,57 @@ const fs = require('fs/promises');
 
         const readFile = async (path) => {
             try{
-                let existingFileHandle;
+                let fileHandle;
                 //if file does not exist throw error that error that file does not exist
-                existingFileHandle = await fs.open(path, 'r');
-                let fileData = await existingFileHandle.readFile({encoding: 'utf-8'});
+                fileHandle = await fs.open(path, 'r');
+                let fileData = await fileHandle.readFile({encoding: 'utf-8'});
                 console.log(fileData);
-                existingFileHandle.close();
+                fileHandle.close();
             } catch (err){
-                console.log('File does not exist.')
+                if (err.code === 'ENOENT') {
+                    console.log('File does not exist.');
+                } else {
+                    console.error('An error occurred:', err);
+                }
             }
         }
 
         const addToFile = async (path) => {
             try{
+
+                const response = await prompts({
+                    type: 'text',
+                    name: 'value',
+                    message: 'Enter the text: ',
+                });
+
                 let existingFileHandle;
                 //add in file
-                existingFileHandle = await fs.open('path', 'r+');
-                
+                existingFileHandle = await fs.open(path, 'a');
+
+                fs.appendFile(path, `${response.value} `);
+                existingFileHandle.close();
+                return console.log('added to file');
             } catch(err){
-                console.log('File does not exist');
+                if (err.code === 'ENOENT') {
+                    console.log('File does not exist.');
+                } else {
+                    console.error('An error occurred:', err);
+                }
+            }
+        }
+
+        const deleteFile = async (path) => {
+            try{
+                await fs.unlink(path);
+            } catch(err){
+                if(err.code === 'ENOENT'){
+                    console.log('No file at this path to remove');
+                }else {
+                    console.log('An error occured while removing the file');
+                    console.log(e);
+                }
+                
             }
         }
 
@@ -70,6 +104,12 @@ const fs = require('fs/promises');
             }else if(command.includes(READ_FILE)){
                 const filePath = command.substring(READ_FILE.length + 1);
                 readFile(filePath);
+            }else if(command.includes(ADD_IN_FILE)){
+                const filePath = command.substring(ADD_IN_FILE.length + 1);
+                addToFile(filePath);
+            }else if(command.includes(DELETE_FILE)){
+                const filePath = command.substring(DELETE_FILE.length + 1);
+                deleteFile(filePath);
             }
         })
 
