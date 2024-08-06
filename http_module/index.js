@@ -1,36 +1,16 @@
 const http = require('http');
-const fs = require('fs');
-const url = require('url');
+const express = require('express');
+const port = process.env.PORT;
 
-const server = http.createServer((req, res) => {
-    if (req.url == '/favicon.ico') return res.end();
-    const myUrl = url.parse(req.url, true);
-    const log = `\n${Date.now()}: ${req.method} ${myUrl.pathname} New Request Recieved`;
+const app = express();
 
-    console.log(`Url: ${JSON.stringify(myUrl)}`);    
+app.get('/', (req, res) => {
+    return res.send('This is homepage');
+})
 
-    fs.appendFile('demo.txt', log, (err, data) => {
-        switch (myUrl.pathname) {
-            case '/':
-                res.end('Homepage');
-                break;
-            case '/about-us':
-                const username = myUrl.query.name;
-                const age = myUrl.query.age;
-                res.end(`I'm ${username} and my age is ${age}`);
-                break;
-            case '/sign-up':
-                if(req.method == 'POST'){
-                    //DB Query
-                    res.end('success');
-                }else if(req.method == 'GET'){
-                    res.end('This is a sign up form');
-                }
-            default:
-                res.end(http.STATUS_CODES['404']);
-        }
-    });
+app.get('/about-us', (req, res) => {
+    const queries = req.query;
+    return res.send(`My name is ${queries.name} and my age is ${queries.age}`);
+})
 
-});
-
-server.listen(8000, () => console.log('Server started'));
+app.listen(port, () => console.log('Server Started'));
