@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.ops{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    margin-right: 1em;
+    padding: 1em;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;    
+}
+
+.container:hover{
+    transform: scale(103%);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+}
