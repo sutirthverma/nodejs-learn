@@ -3,10 +3,10 @@ Install Node.js <---- Done
 NVM <--- Done
 Install node.js using NVM <--- Done
 NPM install <--- Done
-Basics of Node.js 
-Basics of Rest Api’s
-Study Basics Of Express Js
-Create hello world project using ExpressJS
+Basics of Node.js <-- Done
+Basics of Rest Api’s <-- Done
+Study Basics Of Express Js <-- Done
+Create hello world project using ExpressJS <-- Done
 Study Joi, Swagger
 CHAPTER 2
 Study MongoDb and Mongoose
