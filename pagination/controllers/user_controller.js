@@ -1,29 +1,21 @@
-const fs = require('fs');
-let mockData;
+const mockData = require('../mock_data');
 
-fs.readFile('./MOCK_DATA.json', 'utf-8', (err, rawData) => {
-    if(err){
-        console.log(err.message);
-        return;        
-    }
-
-    mockData = JSON.parse(rawData);
-});
-
-async function handleGetUserInfo(req, res){
-    const id = req.params.id;    
+async function handleGetUserInfo(req, res) {
+    const id = req.params.id;
     res.json(mockData[id]);
 }
 
-async function handleGetAllUsers(req, res){
-    const page = req.query.page || 1;
-    const limit = req.query.limit || mockData.length;
+async function handleGetAllUsers(req, res) {
 
-    const startIndex = (page - 1) * limit;
-    const endIndex = (page * limit);
-    const resultUsers = mockData.slice(startIndex, endIndex);
+    try {
+        console.log('entered');
 
-    res.json(resultUsers);
+        
+        const result = await res.paginatedResult;
+        res.json(result);
+    } catch (err) {
+        return res.json({ error: err.message });
+    }
 }
 
 module.exports = {

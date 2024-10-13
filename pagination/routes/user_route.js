@@ -6,12 +6,11 @@ const {
     handleGetAllUsers
 } = require('../controllers/user_controller');
 
-Router.route('/user/all')
+Router.route('/all')
 .get(handleGetAllUsers)
 
-Router.route('/user/:id')
+Router.route('/:id')
 .get(handleGetUserInfo)
-
 
 
 
